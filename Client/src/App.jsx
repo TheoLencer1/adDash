@@ -1,11 +1,34 @@
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { useMemo } from "react";
+import { useSelector } from "react-redux";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { themeSettings } from "./theme";
+import { Layout, General } from "./views";
 
 function App() {
-
-  return (
+	const mode = useSelector((state) => state.global.mode);
+	const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
+	return (
 		<>
-			<h1 className="text-3xl font-bold underline">Hello world!</h1>
+			<BrowserRouter>
+				<ThemeProvider theme={theme}>
+					<CssBaseline />
+					<Routes>
+						<Route element={<Layout />}>
+							<Route
+								path="/"
+								element={<Navigate to="/general" replace />}
+							/>
+							<Route path="/dashboard" element={<General />} />
+							<Route path="/general" element={<General />} />
+							<Route path="/admin" element={<General />} />
+						</Route>
+					</Routes>
+				</ThemeProvider>
+			</BrowserRouter>
 		</>
-  );
+	);
 }
 
-export default App
+export default App;

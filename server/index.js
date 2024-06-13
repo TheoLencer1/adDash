@@ -7,6 +7,9 @@ import helmet from "helmet";
 import morgan from "morgan";
 import User from "./models/User.js";
 import dbConnection from "./src/db.js";
+import userRoutes from "./routes/user.js";
+import generalRoutes from "./routes/general.js";
+import managementRoutes from "./routes/management.js";
 
 /* CONFIGURATION */
 dotenv.config();
