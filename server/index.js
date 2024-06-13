@@ -40,6 +40,10 @@ app.get("/", (req, res) => {
 });
 
 
+app.get("/port", (req, res) => {
+	res.send(`We're live on PORT ${PORT}`)
+})
+
 app.get("/posts", (req, res, next) => {
 	PostModel.find({})
 		.then((post) => {
