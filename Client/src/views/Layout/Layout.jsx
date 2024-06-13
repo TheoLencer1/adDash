@@ -1,10 +1,15 @@
-import React from 'react'
+import React from "react";
 import { Outlet } from "react-router-dom";
+import { Navbar, Sidebar } from "../../components";
 
 const Layout = () => {
-    return (
-        <div><Outlet /></div>
-    )
-}
+	return (
+		<div>
+            <Navbar />
+            <Sidebar />
+			<Outlet />
+		</div>
+	);
+};
 
-export default Layout
+export default Layout;

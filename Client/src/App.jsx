@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { themeSettings } from "./theme";
 import { Layout, General } from "./views";
+import { Admin } from "./views";
 
 function App() {
 	const mode = useSelector((state) => state.global.mode);
@@ -22,7 +23,7 @@ function App() {
 							/>
 							<Route path="/dashboard" element={<General />} />
 							<Route path="/general" element={<General />} />
-							<Route path="/admin" element={<General />} />
+							<Route path="/admin" element={<Admin />} />
 						</Route>
 					</Routes>
 				</ThemeProvider>
